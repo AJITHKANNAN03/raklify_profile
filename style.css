@@ -370,8 +370,8 @@ header {
     text-shadow: 0 0 20px rgba(58, 149, 237, 0.4);
 }
 
-/* Testimonials */
-.testimonials-grid {
+/* /* Testimonials */
+/* .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -409,7 +409,7 @@ header {
 .testimonial-text {
     color: var(--text-gray);
     font-style: italic;
-}
+} */
 
 /* Blog Section (Home) */
 .blog-grid {
@@ -455,7 +455,7 @@ header {
     line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
+} 
 
 /* CTA Banner */
 .cta-banner {
