@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | RAKLIFY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-tag {
+            background: var(--primary-light);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .portfolio-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 992px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div><img src="./assets/RAKLIFY.png" class="logo" alt="brand-logo"></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="section-padding" style="padding-top: 150px; text-align: center;">
+        <div class="container">
+            <h1 class="text-gradient">Our Portfolio</h1>
+            <p style="color: var(--text-gray); max-width: 600px; margin: 20px auto;">Explore our latest projects and
+                success stories.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="container portfolio-grid">
+
+            <!-- Item 1 -->
+            <div class="portfolio-item">
+                <img src="./assets/personal_porfolio.png" alt="personal_porfolio" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Personal-Porfolio</h3>
+                    <a href="https://ajithkannan03.github.io/Personal-Portfolio/" target="_blank"
+                        class="btn btn-outline">View Project</a>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="portfolio-item">
+                <img src="./assets/crud.png" alt="crud" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">CRUD App</h3>
+                    <a href="https://profile-crud.netlify.app/" class="btn btn-outline">View Project</a>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="portfolio-item">
+                <img src="./assets/movie_app.png" alt="movie_app" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Movies App</h3>
+                    <a href="https://raklify-movie-app.netlify.app/" class="btn btn-outline">View Project</a>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="portfolio-item">
+                <img src="./assets/company_profile.png" alt="company_profile" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Company Profile</h3>
+                    <a href="https://www.perfectcoolingenterprises.com/" class="btn btn-outline">View Project</a>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="portfolio-item">
+                <img src="./assets/biryani_bowl.png" alt="fod_app" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Food App</h3>
+                    <a href="https://ajithkannan03.github.io/Biryani-bowl/" class="btn btn-outline">View Project</a>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="portfolio-item">
+                <img src="./assets/weather_app.png" alt="Project 6" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Weather App</h3>
+                    <a href="https://weather-checking-application.netlify.app/" class="btn btn-outline">View Project</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+            <div><img src="./assets/RAKLIFY.png" class="logo" alt="brand-logo"></div>
+                    <p>Your partner in digital transformation. We build scalable software and data-driven marketing
+                        strategies.</p>
+                    <div class="footer-socials">
+                        <a href="https://github.com/AJITHKANNAN03" class="social-icon" target="_blank"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/ajith-kannan-r" target="_blank" class="social-icon"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/the_rak03" target="_blank" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/qr/AN3C4HBKZZIZJ1" class="social-icon" target="_blank"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">App Development</a></li>
+                        <li><a href="services.html">SEO Optimization</a></li>
+                        <li><a href="services.html">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:raklify@gmail.com">raklify@gmail.com</a></li>
+                        <li><a href="tel:+918056572030">+91 8056572030</a></li>
+                        <li>Madurai</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> RAKLIFY. All rights reserved. <span
+                        style="color: var(--primary-light);">♥</span></p>
+            </div>
+        </div>
+    </footer>
+
+</html>
