@@ -371,7 +371,7 @@ header {
 }
 
 /* Testimonials */
-.testimonials-grid {
+/* .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -409,7 +409,7 @@ header {
 .testimonial-text {
     color: var(--text-gray);
     font-style: italic;
-}
+} */
 
 /* Blog Section (Home) */
 .blog-grid {
