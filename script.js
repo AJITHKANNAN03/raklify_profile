@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Blog API Integration ---
     // Replace 'techcrunch.com' with the actual site ID or domain (e.g., 'your-site.wordpress.com')
-    const WORDPRESS_SITE_ID = 'techcrunch.com';
-    const BLOG_API_URL = `https://public-api.wordpress.com/wp/v2/sites/${WORDPRESS_SITE_ID}/posts?per_page=3`;
+    const WORDPRESS_SITE_ID = 'raklifyblogs.wordpress.com';
+    const BLOG_API_URL = `https://public-api.wordpress.com/wp/v2/sites/raklifyblogs.wordpress.com/posts`;
 
     const blogGrid = document.getElementById('home-blog-grid');
     const blogPageGrid = document.getElementById('blog-page-grid');
