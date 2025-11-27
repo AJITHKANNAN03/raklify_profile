@@ -57,26 +57,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add class for animation
     const style = document.createElement('style');
-    style.innerHTML = `
-        .fade-in-up {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
+    style.innerHTML = `.fade-in-up {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }`;
     document.head.appendChild(style);
 
+    // WordPress API configuration
+    const WORDPRESS_SITE_ID = 'raklifyblogs.wordpress.com';
+    const BLOG_API_URL = `https://public-api.wordpress.com/wp/v2/sites/raklifyblogs.wordpress.com/posts`;
+    const blogGrid = document.getElementById("home-blog-grid");
+    const blogPageGrid = document.getElementById("blog-page-grid");
 
-    // --- Blog API Integration ---
-    // Replace 'techcrunch.com' with the actual site ID or domain (e.g., 'your-site.wordpress.com')
-    const WORDPRESS_SITE_ID = 'techcrunch.com';
-    const BLOG_API_URL = `https://public-api.wordpress.com/wp/v2/sites/${WORDPRESS_SITE_ID}/posts?per_page=3`;
 
-    const blogGrid = document.getElementById('home-blog-grid');
-    const blogPageGrid = document.getElementById('blog-page-grid');
-
+    // Fetch blogs with embedded media
     async function fetchBlogs() {
         try {
-            const response = await fetch(BLOG_API_URL);
+            const response = await fetch(`${BLOG_API_URL}?_embed`);
             if (!response.ok) throw new Error('Network response was not ok');
             const posts = await response.json();
 
@@ -98,6 +95,33 @@ document.addEventListener('DOMContentLoaded', () => {
             if (blogGrid) blogGrid.innerHTML = fallbackContent;
             if (blogPageGrid) blogPageGrid.innerHTML = fallbackContent;
         }
+    }
+
+    function createBlogCard(post) {
+        const title = post.title.rendered;
+        const excerpt = post.excerpt.rendered.replace(/<[^>]*>/gm, '').substring(0, 100) + '...';
+        const date = new Date(post.date).toLocaleDateString();
+
+        let image = 'https://via.placeholder.com/400x200/2563EB/FFFFFF?text=RAKLIFY+Blog';
+        if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0].source_url) {
+            image = post._embedded['wp:featuredmedia'][0].source_url;
+        } else if (post.jetpack_featured_media_url) {
+            image = post.jetpack_featured_media_url;
+        }
+
+        const link = `blog-post.html?id=${post.id}`;
+
+        return `
+            <div class="glass-card blog-card">
+                <img src="${image}" alt="${title}" class="blog-thumb">
+                <div class="blog-content">
+                    <span class="blog-date">${date}</span>
+                    <h3>${title}</h3>
+                    <p>${excerpt}</p>
+                    <a href="${link}" class="service-link" target=_blank>Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        `;
     }
 
     function renderBlogs(posts) {
@@ -124,35 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function createBlogCard(post) {
-        const title = post.title.rendered;
-        const excerpt = post.excerpt.rendered.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...';
-        const date = new Date(post.date).toLocaleDateString();
-        // wp/v2 doesn't always return a featured image URL directly in the main object unless _embed is used or it's in a specific field.
-        // For simplicity in this demo without _embed, we'll use a placeholder or check for jetpack_featured_media_url if available.
-        const image = post.jetpack_featured_media_url ? post.jetpack_featured_media_url : 'https://via.placeholder.com/400x200/2563EB/FFFFFF?text=RAKLIFY+Blog';
-        const link = post.link;
-
-        return `
-            <div class="glass-card blog-card">
-                <img src="${image}" alt="${title}" class="blog-thumb">
-                <div class="blog-content">
-                    <span class="blog-date">${date}</span>
-                    <h3>${title}</h3>
-                    <p>${excerpt}</p>
-                    <a href="${link}" target="_blank" class="service-link">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        `;
-    }
-
-    // Call fetch only if we have a blog grid on the page
     if (blogGrid || blogPageGrid) {
         fetchBlogs();
     }
 
 
-    // --- Simple Particle Animation for Hero ---
+    //--- Simple Particle Animation for Hero ---
     const canvas = document.createElement('canvas');
     const heroBg = document.getElementById('particles-js');
 
@@ -240,4 +241,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 document.getElementById("year").textContent = new Date().getFullYear();
-
