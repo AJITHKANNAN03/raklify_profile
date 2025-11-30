@@ -6,6 +6,7 @@
     { "source": "/contact-us/index.html", "destination": "/contact-us/", "permanent": true },
     { "source": "/our-portfolio/index.html", "destination": "/our-portfolio/", "permanent": true },
     { "source": "/blog/index.html", "destination": "/blog/", "permanent": true }
-    { "source": "/blog/blog-reading/index.html", "destination": "/blog/blog-reading", "permanent": true }
+    { "source": "/blog/blog-reading/index.html", "destination": "/blog/blog-reading/", "permanent": true }
+    { "source": "https://www.raklify.online/sitemap.xml/", "destination": "https://www.raklify.online/sitemap.xml/", "permanent": true }
   ]
 }
