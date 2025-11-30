@@ -4,7 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post | RAKLIFY</title>
+    <!-- robots meta tag -->
+    <meta name="robots" content="index, follow">
+
+    <title id="page-title">Loading...</title>
+    <meta name="description" id="meta-desc" content="" />
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="./assets/RAKLIFY.png">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Web Development & Digital Marketing in Madurai | Raklify">
+    <meta property="og:description"
+        content="Raklify is the best digital marketing and web development agency delivering SEO, web design, and Google Ads.">
+    <meta property="og:image" content="https://raklify.com/assets/og-image.jpg">
+    <meta property="og:url" content="https://raklify.com">
+    <meta property="og:type" content="website">
+    <!-- twitter card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Web Development & Digital Marketing in Madurai | Raklify">
+    <meta name="twitter:description"
+        content="Raklify is the best digital marketing and web development agency delivering SEO, web design, and Google Ads.">
+    <meta name="twitter:image" content="https://www.raklify.online/og-image.jpg">
+    <meta name="twitter:site" content="@raklify">
+    <!-- css links -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -44,13 +65,13 @@
                     <p>Your partner in digital transformation. We build scalable software and data-driven marketing
                         strategies.</p>
                     <div class="footer-socials">
-                        <a href="https://github.com/AJITHKANNAN03" class="social-icon" target="_blank"><i
+                        <a href="https://github.com/AJITHKANNAN03" class="social-icon" target="_blank" rel="nofollow"><i
                                 class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/ajith-kannan-r" class="social-icon" target="_blank"><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/the_rak03" class="social-icon" target="_blank"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/qr/AN3C4HBKZZIZJ1" class="social-icon" target="_blank"><i
+                        <a href="https://www.linkedin.com/in/ajith-kannan-r" class="social-icon" target="_blank"
+                            rel="nofollow"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/the_rak03" class="social-icon" target="_blank"
+                            rel="nofollow"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/qr/AN3C4HBKZZIZJ1" class="social-icon" target="_blank" rel="nofollow"><i
                                 class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
@@ -125,9 +146,7 @@
                 <a href="blog.html" class="back-button">← Back to Blog</a>
             </div>
         </div>
-    </div>
-`;
-
+    </div>`
                 })
                 .catch(err => {
                     postContainer.innerHTML = `<p>Error loading post.</p>`;
