@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="blog-date">${date}</span>
                     <h3>${title}</h3>
                     <p>${excerpt}</p>
-                    <a href="${link}" class="service-link" target=_blank>Read More <i class="fas fa-arrow-right"></i></a>
+                    <a href="${link}" class="service-link" target=_blank  rel="follow">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         `;
