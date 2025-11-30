@@ -1,6 +1,7 @@
 {
   "trailingSlash": true,
   "redirects": [
+    { "source": "https://www.raklify.online/", "destination": "https://raklify.online/", "permanent": true },
     { "source": "/about-us/index.html", "destination": "/about-us/", "permanent": true },
     { "source": "/web-development-digital-marketing-services/index.html", "destination": "/web-development-digital-marketing-services/", "permanent": true },
     { "source": "/contact-us/index.html", "destination": "/contact-us/", "permanent": true },
