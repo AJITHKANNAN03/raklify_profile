@@ -1,13 +1,15 @@
 {
   "trailingSlash": true,
+
   "redirects": [
     { "source": "/about-us/index.html", "destination": "/about-us/", "permanent": true },
     { "source": "/web-development-digital-marketing-services/index.html", "destination": "/web-development-digital-marketing-services/", "permanent": true },
     { "source": "/contact-us/index.html", "destination": "/contact-us/", "permanent": true },
     { "source": "/our-portfolio/index.html", "destination": "/our-portfolio/", "permanent": true },
-    { "source": "/blog/index.html", "destination": "/blog/", "permanent": true }
+    { "source": "/blog/index.html", "destination": "/blog/", "permanent": true },
     { "source": "/blog/blog-reading/index.html", "destination": "/blog/blog-reading/", "permanent": true }
-  ]
+  ],
+
   "routes": [
     { "src": "/robots.txt", "dest": "/robots.txt" },
     { "src": "/sitemap.xml", "dest": "/sitemap.xml" }
