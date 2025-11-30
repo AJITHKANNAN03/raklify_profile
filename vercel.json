@@ -8,4 +8,8 @@
     { "source": "/blog/index.html", "destination": "/blog/", "permanent": true }
     { "source": "/blog/blog-reading/index.html", "destination": "/blog/blog-reading/", "permanent": true }
   ]
+  "routes": [
+    { "src": "/robots.txt", "dest": "/robots.txt" },
+    { "src": "/sitemap.xml", "dest": "/sitemap.xml" }
+  ]
 }
