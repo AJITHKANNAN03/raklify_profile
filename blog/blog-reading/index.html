@@ -1,186 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WF8Y3FETM"></script>
-	<script>
-	function gtag() {
-		dataLayer.push(arguments)
-	}
-	window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "G-1WF8Y3FETM");
-	</script>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta name="robots" content="index, follow">
-	<title id="page-title"></title>
-	<meta name="description" content="">
-	<link rel="icon" type="image/png" href="../../assets/RAKLIFY.png">
-	<meta property="og:title" content="">
-<meta property="og:description" content="">
-<meta property="og:image" content="">
-<meta property="og:url" content="">
-<meta property="og:type" content="website">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="">
-<meta name="twitter:description" content="">
-<meta name="twitter:image" content="">
-
-	<meta name="twitter:site" content="@raklify">
-	<link rel="stylesheet" href="../../style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-
-<body>
-	<header>
-		<div class="container nav-container">
-			<div><img src="../../assets/RAKLIFY.png" class="logo" alt="brand-logo"></div>
-			<nav>
-				<ul class="nav-links">
-					<li><a href="../../index.html">Home</a></li>
-					<li><a href="../../web-development-digital-marketing-services/index.html">Services</a></li>
-					<li><a href="../../our-portfolio/index.html">Portfolio</a></li>
-					<li><a href="../../about-us/index.html">About Us</a></li>
-					<li><a href="../../blog/index.html" class="active">Blog</a></li>
-					<li><a href="../../contact-us/index.html">Contact</a></li>
-				</ul>
-			</nav>
-			<div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
-		</div>
-	</header>
-	<section class="section-padding" style="padding-top:150px;text-align:center">
-		<div class="container" id="post-container">
-			<p>Loading post...</p>
-		</div>
-	</section>
-	<footer>
-		<div class="container">
-			<div class="footer-grid">
-				<div class="footer-info">
-					<div><img src="../../assets/RAKLIFY.png" class="logo" alt="brand-logo"></div>
-					<p>Your partner in digital transformation. We build scalable software and data-driven marketing strategies.</p>
-					<div class="footer-socials"><a href="https://github.com/AJITHKANNAN03" class="social-icon" target="_blank" rel="nofollow"><i class="fab fa-github"></i></a> <a href="https://www.linkedin.com/in/ajith-kannan-r" class="social-icon" target="_blank" rel="nofollow"><i class="fab fa-linkedin-in"></i></a> <a href="https://www.instagram.com/the_rak03" class="social-icon" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a> <a href="https://wa.me/qr/AN3C4HBKZZIZJ1" class="social-icon" target="_blank" rel="nofollow"><i class="fa-brands fa-whatsapp"></i></a></div>
-				</div>
-				<div class="footer-links">
-					<h4>Company</h4>
-					<ul>
-						<li><a href="../../about-us/index.html">About Us</a></li>
-						<li><a href="../../web-development-digital-marketing-services/index.html">Services</a></li>
-						<li><a href="../../our-portfolio/index.html">Portfolio</a></li>
-						<li><a href="../../contact-us/index.html">Contact</a></li>
-					</ul>
-				</div>
-				<div class="footer-links">
-					<h4>Services</h4>
-					<ul>
-						<li><a href="../../web-development-digital-marketing-services/index.html">Web Development</a></li>
-						<li><a href="../../web-development-digital-marketing-services/index.html">App Development</a></li>
-						<li><a href="../../web-development-digital-marketing-services/index.html">SEO Optimization</a></li>
-						<li><a href="../../web-development-digital-marketing-services/index.html">Digital Marketing</a></li>
-					</ul>
-				</div>
-				<div class="footer-links">
-					<h4>Contact</h4>
-					<ul>
-						<li><a href="mailto:raklify@gmail.com">raklify@gmail.com</a></li>
-						<li><a href="tel:+918056572030">+91 8056572030</a></li>
-						<li>Madurai</li>
-					</ul>
-				</div>
-			</div>
-			<div class="footer-bottom">
-				<p>&copy; <span id="year"></span> RAKLIFY. All rights reserved. <span style="color:var(--primary-light)">♥</span></p>
-			</div>
-		</div>
-	</footer>
-	<script src="../../script.js"></script>
-	<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const params = new URLSearchParams(window.location.search);
-  const postId = params.get('id');
-  const postContainer = document.getElementById("post-container");
-
-  if (!postId) {
-    postContainer.innerHTML = `<p>No post selected.</p>`;
-    return;
-  }
-
-  const API_URL = `https://public-api.wordpress.com/wp/v2/sites/raklifyblogs.wordpress.com/posts/${postId}?_embed`;
-
-  fetch(API_URL)
-    .then(res => res.json())
-    .then(post => {
-
-      const title = post.title.rendered;
-      const description = post.excerpt.rendered.replace(/<[^>]+>/g,'').slice(0,160);
-      const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url 
-                   || post.jetpack_featured_media_url 
-                   || "https://www.raklify.online/assets/og-default.png";
-      const url = window.location.href;
-
-      // ✅ Update Page Title
-      document.title = title + " | Raklify Blog";
-
-      // ✅ UPDATE META DESCRIPTION
-      setMeta("description", description);
-
-      // ✅ UPDATE OG TAGS
-      setProperty("og:title", title);
-      setProperty("og:description", description);
-      setProperty("og:image", image);
-      setProperty("og:url", url);
-
-      // ✅ UPDATE TWITTER CARDS
-      setMeta("twitter:title", title);
-      setMeta("twitter:description", description);
-      setMeta("twitter:image", image);
-
-
-      // ✅ RENDER BLOG CONTENT
-      const date = new Date(post.date).toLocaleDateString();
-      const content = post.content.rendered;
-
-      postContainer.innerHTML = `
-        <div class="blog-post-wrapper">
+<!DOCTYPE html><html lang="en"><head><script async src="https://www.googletagmanager.com/gtag/js?id=G-1WF8Y3FETM"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-1WF8Y3FETM");</script><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index, follow"><title id="page-title"></title><meta name="description" content=""><link rel="icon" type="image/png" href="../../assets/RAKLIFY.png"><meta property="og:title" content="Web Development & Digital Marketing in Madurai | Raklify"><meta property="og:description" content="Raklify is the best digital marketing and web development agency delivering SEO, web design, and Google Ads."><meta property="og:image" content="https://www.raklify.online/assets/og-image.png"><meta property="og:url" content="https://raklify.com"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Web Development & Digital Marketing in Madurai | Raklify"><meta name="twitter:description" content="Raklify is the best digital marketing and web development agency delivering SEO, web design, and Google Ads."><meta name="twitter:image" content="https://www.raklify.online/assets/og-image.png"><meta name="twitter:site" content="@raklify"><link rel="stylesheet" href="../../style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head><body><header><div class="container nav-container"><div><img src="../../assets/RAKLIFY.png" class="logo" alt="brand-logo"></div><nav><ul class="nav-links"><li><a href="../../index.html">Home</a></li><li><a href="../../web-development-digital-marketing-services/index.html">Services</a></li><li><a href="../../our-portfolio/index.html">Portfolio</a></li><li><a href="../../about-us/index.html">About Us</a></li><li><a href="../../blog/index.html" class="active">Blog</a></li><li><a href="../../contact-us/index.html">Contact</a></li></ul></nav><div class="mobile-menu-btn"><i class="fas fa-bars"></i></div></div></header><section class="section-padding" style="padding-top:150px;text-align:center"><div class="container" id="post-container"><p>Loading post...</p></div></section><footer><div class="container"><div class="footer-grid"><div class="footer-info"><div><img src="../../assets/RAKLIFY.png" class="logo" alt="brand-logo"></div><p>Your partner in digital transformation. We build scalable software and data-driven marketing strategies.</p><div class="footer-socials"><a href="https://github.com/AJITHKANNAN03" class="social-icon" target="_blank" rel="nofollow"><i class="fab fa-github"></i></a> <a href="https://www.linkedin.com/in/ajith-kannan-r" class="social-icon" target="_blank" rel="nofollow"><i class="fab fa-linkedin-in"></i></a> <a href="https://www.instagram.com/the_rak03" class="social-icon" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a> <a href="https://wa.me/qr/AN3C4HBKZZIZJ1" class="social-icon" target="_blank" rel="nofollow"><i class="fa-brands fa-whatsapp"></i></a></div></div><div class="footer-links"><h4>Company</h4><ul><li><a href="../../about-us/index.html">About Us</a></li><li><a href="../../web-development-digital-marketing-services/index.html">Services</a></li><li><a href="../../our-portfolio/index.html">Portfolio</a></li><li><a href="../../contact-us/index.html">Contact</a></li></ul></div><div class="footer-links"><h4>Services</h4><ul><li><a href="../../web-development-digital-marketing-services/index.html">Web Development</a></li><li><a href="../../web-development-digital-marketing-services/index.html">App Development</a></li><li><a href="../../web-development-digital-marketing-services/index.html">SEO Optimization</a></li><li><a href="../../web-development-digital-marketing-services/index.html">Digital Marketing</a></li></ul></div><div class="footer-links"><h4>Contact</h4><ul><li><a href="mailto:raklify@gmail.com">raklify@gmail.com</a></li><li><a href="tel:+918056572030">+91 8056572030</a></li><li>Madurai</li></ul></div></div><div class="footer-bottom"><p>&copy; <span id="year"></span> RAKLIFY. All rights reserved. <span style="color:var(--primary-light)">♥</span></p></div></div></footer><script src="../../script.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+		const params = new URLSearchParams(window.location.search);
+		const postId = params.get('id');
+		const postContainer = document.getElementById('post-container');
+		if(!postId) {
+			postContainer.innerHTML = `<p>No post selected.</p>`;
+			return;
+		}
+		const API_URL = `https://public-api.wordpress.com/wp/v2/sites/raklifyblogs.wordpress.com/posts/${postId}?_embed`;
+		fetch(API_URL).then(res => res.json()).then(post => {
+			const title = post.title.rendered;
+			const content = post.content.rendered;
+			const date = new Date(post.date).toLocaleDateString();
+			const description = post.excerpt.rendered.replace(/<[^>]+>/g, '').slice(0, 160);
+			const image = post._embedded ? .["wp:featuredmedia"] ? .[0] ? .source_url || post.jetpack_featured_media_url || "https://www.raklify.online/assets/og-default.png";
+			const url = window.location.href;
+			// ✅ UPDATE PAGE TITLE
+			document.title = title + " | Raklify Blog";
+			// ✅ UPDATE META DESCRIPTION
+			updateMeta("description", description);
+			// ✅ RENDER CONTENT ON PAGE
+			postContainer.innerHTML = `
+      <div class="blog-post-wrapper">
+        <div class="blog-card">
           <img src="${image}" alt="${title}" class="blog-thumb">
-          <h1>${title}</h1>
-          <p>${date}</p>
-          <div class="blog-body">${content}</div>
-          <a href="../../blog/" class="back-button">← Back to Blog</a>
+          <div class="blog-content">
+            <span class="blog-date">${date}</span>
+            <h1>${title}</h1>
+            <div class="blog-body">${content}</div>
+            <a href="../../blog/" class="back-button">← Back to Blog</a>
+          </div>
         </div>
-      `;
-    })
-    .catch(err => {
-      postContainer.innerHTML = `<p>Loading failed.</p>`;
-    });
-
-
-  // ======= FUNCTIONS =======
-
-  function setMeta(name, content) {
-    let meta = document.querySelector(`meta[name="${name}"]`);
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", name);
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", content);
-  }
-
-  function setProperty(prop, content) {
-    let meta = document.querySelector(`meta[property="${prop}"]`);
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("property", prop);
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", content);
-  }
-
-});
-</script>
-
-</body>
-
-</html>
+      </div>
+    `;
+		}).catch(err => {
+			postContainer.innerHTML = `<p>Error loading post.</p>`;
+		});
+		// 🔹 FUNCTIONS 🔹
+		function updateMeta(name, content) {
+			let meta = document.querySelector(`meta[name="${name}"]`);
+			if(!meta) {
+				meta = document.createElement('meta');
+				meta.setAttribute("name", name);
+				document.head.appendChild(meta);
+			}
+			meta.setAttribute("content", content);
+		}
+	});</script></body></html>
