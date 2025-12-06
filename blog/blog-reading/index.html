@@ -11,8 +11,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- robots meta tag -->
     <meta name="robots" content="index, follow">
 
-    <title id="page-title"> </title>
-    <meta name="description" id="meta-desc" content="" />
+    <title id="page-title">RAKLIFY|Read Our Web  Developement and Digital Marketing Blogs</title>
+    <meta name="description" id="meta-desc" content="Raklify is the best digital marketing and web development agency delivering SEO, web design, and Google Ads." />
     <!-- favicon -->
     <link rel="icon" type="image/png" href="../../assets/RAKLIFY.png">
     <!-- Open Graph Meta Tags -->
@@ -146,7 +146,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     let image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url
                         || post.jetpack_featured_media_url
                         || "https://via.placeholder.com/800x400/2563EB/FFFFFF?text=RAKLIFY+Blog";
-                 
 
                     postContainer.innerHTML = `
     <div class="blog-post-wrapper">
@@ -164,7 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 .catch(err => {
                     postContainer.innerHTML = `<p>Error loading post.</p>`;
                 });
-           
+        });
 
     </script>
 </body>
