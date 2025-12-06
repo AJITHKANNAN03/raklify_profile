@@ -168,18 +168,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 .catch(err => {
                     postContainer.innerHTML = `<p>Error loading post.</p>`;
                 });
-           // 🔹 FUNCTIONS 🔹
-		function updateMeta(name, content) {
-			let meta = document.querySelector(`meta[name="${name}"]`);
-			if(!meta) {
-				meta = document.createElement('meta');
-				meta.setAttribute("name", name);
-				document.head.appendChild(meta);
-			}
-			meta.setAttribute("content", content);
-		}
-
-        });
+           
 
     </script>
 </body>
