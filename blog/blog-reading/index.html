@@ -146,10 +146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     let image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url
                         || post.jetpack_featured_media_url
                         || "https://via.placeholder.com/800x400/2563EB/FFFFFF?text=RAKLIFY+Blog";
-                  // ✅ UPDATE PAGE TITLE
-			document.title = title + " | Raklify Blog";
-			// ✅ UPDATE META DESCRIPTION
-			updateMeta("description", description);
+                 
 
                     postContainer.innerHTML = `
     <div class="blog-post-wrapper">
@@ -163,6 +160,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
     </div>`
+					 // UPDATE PAGE TITLE
+			document.title = title + " | Raklify Blog";
+			//  UPDATE META DESCRIPTION
+			updateMeta("description", description);
                 })
                 .catch(err => {
                     postContainer.innerHTML = `<p>Error loading post.</p>`;
