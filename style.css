@@ -291,67 +291,11 @@ header {
     }
 }
 
-/* Services Preview */
+/* about us */
 .section-header {
     text-align: center;
    margin-top:120px;
     margin-bottom: 60px;
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.section-header p {
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.service-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 100%;
-}
-
-.service-icon {
-    font-size: 2.5rem;
-    color: var(--primary-light);
-    margin-bottom: 20px;
-    background: rgba(37, 99, 235, 0.1);
-    padding: 15px;
-    border-radius: 12px;
-}
-
-.service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.service-card p {
-    color: var(--text-gray);
-    margin-bottom: 25px;
-    flex-grow: 1;
-}
-
-.service-link {
-    color: var(--primary-light);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.service-link:hover {
-    gap: 10px;
 }
 
 /* Why Choose Us */
