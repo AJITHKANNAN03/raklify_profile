@@ -294,6 +294,7 @@ header {
 /* Services Preview */
 .section-header {
     text-align: center;
+   margin-top:120px;
     margin-bottom: 60px;
 }
 
@@ -721,15 +722,10 @@ footer {
 }
 
 @media (max-width: 420px) {
-    /* .hero-btns a {
+    .hero-btns{
         display: flex;
         flex-direction: column;
-    } */
- .btn {
-    display: block;
-    margin-top:10px;
-}
-
+    }
     .footer-grid {
         grid-template-columns: 1fr;
     }
